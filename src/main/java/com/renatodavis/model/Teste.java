@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.renatodavis.controller.ClienteDAO;
+import com.renatodavis.controller.PessoaDAO;
 
 public class Teste {
 	
@@ -14,16 +14,20 @@ public class Teste {
 	public static void main(String[] args) {
 	
 		// FIND
-		Cliente cliente = entityManager.find(Cliente.class, 10);
+		//Pessoa pessoa = entityManager.find(Pessoa.class, 1);
 		
+		Pessoa p = new Pessoa();
 		
+		p.setId(0);
+		p.setNome("renata");
 		
+		PessoaDAO pd = new PessoaDAO();
+		pd.salvar(p);
 		
-		//ClienteDAO.getInstance().merge(cliente);
 		//entityManager.getTransaction().begin();
 		//entityManager.persist(cliente);
 		//entityManager.getTransaction().commit();
-		System.out.println("Nome do cliente:" + cliente.getNome());
+		//System.out.println("Nome do cliente:" + pessoa.getNome());
 		// DELETE
 //		Cliente cliente = entityManager.find(Cliente.class, 2);
 //		entityManager.getTransaction().begin();
