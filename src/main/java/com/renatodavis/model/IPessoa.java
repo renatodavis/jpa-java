@@ -1,8 +1,10 @@
 package com.renatodavis.model;
 
+import javax.persistence.EntityManager;
+
 public interface IPessoa {
 
-	void salvar(Pessoa pessoa);
+	void salvar(Pessoa pessoa, EntityManager entityManager);
 	
 	void excluir(int id);
 	

@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import com.renatodavis.controller.CategoriaDAO;
 import com.renatodavis.controller.PessoaDAO;
 
 public class Teste {
@@ -16,13 +17,18 @@ public class Teste {
 		// FIND
 		//Pessoa pessoa = entityManager.find(Pessoa.class, 1);
 		
-		Pessoa p = new Pessoa();
+		//Pessoa p = new Pessoa();
 		
-		p.setId(0);
-		p.setNome("renata");
+		//p.setId(0);
+		//p.setNome("renata");
 		
 		PessoaDAO pd = new PessoaDAO();
-		pd.salvar(p);
+		//pd.salvar(p);
+		
+		Categoria c = new Categoria(0,"asdasd");
+		
+		CategoriaDAO cd = new CategoriaDAO();
+		//cd.salvar(c);
 		
 		//entityManager.getTransaction().begin();
 		//entityManager.persist(cliente);

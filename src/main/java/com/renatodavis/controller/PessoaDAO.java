@@ -1,20 +1,19 @@
 package com.renatodavis.controller;
 
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
 import com.renatodavis.model.IPessoa;
 import com.renatodavis.model.Pessoa;
+import java.awt.*;
 
 public class PessoaDAO implements IPessoa {
 	
 	private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("BancoPU");
 	private static EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-	public void salvar(Pessoa pessoa) {
+	public void salvar(Pessoa pessoa, EntityManager entityManager) {
 		
 		try {
 			entityManager.getTransaction().begin();
@@ -48,5 +47,3 @@ public class PessoaDAO implements IPessoa {
 		
 	}
 }
-
-

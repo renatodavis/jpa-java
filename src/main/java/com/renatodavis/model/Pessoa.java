@@ -23,6 +23,13 @@ public class Pessoa {
 	private String dataNasc;
 
 	
+	public Pessoa(int id, String nome, String sobrenome) {
+		this.id = id;
+		this.nome = nome;
+		this.sobrenome = sobrenome;
+		
+	}
+	
 	public String getSobrenome() {
 		return sobrenome;
 	}
