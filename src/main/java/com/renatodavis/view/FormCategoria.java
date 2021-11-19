@@ -1,7 +1,10 @@
-package com.renatodavis.model;
+package com.renatodavis.view;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import com.renatodavis.controller.CategoriaDAO;
+import com.renatodavis.model.Categoria;
+import com.renatodavis.model.MensagemPadrao;
+
 import javax.swing.JOptionPane;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;

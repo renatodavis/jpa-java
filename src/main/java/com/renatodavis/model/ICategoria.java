@@ -1,5 +1,7 @@
 package com.renatodavis.model;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 public interface ICategoria {
@@ -13,4 +15,6 @@ public interface ICategoria {
 	Categoria consultar(int id);
 	
 	void alterar(Categoria categoria);
+	
+	List<Categoria> consultarTodos(EntityManager entityManager);
 }

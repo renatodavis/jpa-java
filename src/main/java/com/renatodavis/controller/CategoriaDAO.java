@@ -4,8 +4,12 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+
 import com.renatodavis.model.Categoria;
 import com.renatodavis.model.ICategoria;
+import com.renatodavis.model.*;
+import java.util.ArrayList;
 
 	public class CategoriaDAO implements ICategoria {
 		
@@ -37,12 +41,18 @@ import com.renatodavis.model.ICategoria;
 		}
 
 		public Categoria consultar(int id) {
-		//	Categoria categoria = entityManager.find(Categoria.class, id);
+			//Categoria categoria = EntityManager
 			return null;
 		}
 
 		public void alterar(Categoria categoria) {
 			// TODO Auto-generated method stub
 			
+		}
+
+		public List<Categoria> consultarTodos(EntityManager entityManager) {
+			
+			Query query = entityManager.createQuery("SELECT * FROM Categoria");
+		    return (List<Categoria>) query.getResultList();
 		}
 }

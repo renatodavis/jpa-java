@@ -1,4 +1,4 @@
-package com.renatodavis.model;
+package com.renatodavis.view;
 
 import java.awt.EventQueue;
 

@@ -1,4 +1,4 @@
-package com.renatodavis.model;
+package com.renatodavis.view;
 
 import java.awt.EventQueue;
 
@@ -75,8 +75,17 @@ public class FormSistemaMenu {
 		});
 		mnNewMenu.add(mntmCategoria);
 		
-		JMenu mnNewMenu_1 = new JMenu("New menu");
+		JMenu mnNewMenu_1 = new JMenu("TesteViewCategoria");
 		menuBar.add(mnNewMenu_1);
+		
+		JMenuItem mntmNewMenuItem = new JMenuItem("ViewCategoria");
+		mntmNewMenuItem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				FormCategoriaView view = new FormCategoriaView();
+				view.setVisible(true);
+			}
+		});
+		mnNewMenu_1.add(mntmNewMenuItem);
 		
 		JMenuItem menuItem = new JMenuItem("New menu item");
 		menuBar.add(menuItem);

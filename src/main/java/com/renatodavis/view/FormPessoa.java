@@ -1,4 +1,4 @@
-package com.renatodavis.model;
+package com.renatodavis.view;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import com.renatodavis.controller.PessoaDAO;
+import com.renatodavis.model.Pessoa;
 
 import javax.swing.JTextField;
 import javax.swing.JLabel;
