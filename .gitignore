@@ -1,0 +1,4 @@
+
+src/main/resources/META-INF/persistence.xml
+target/classes/META-INF/MANIFEST.MF
+target/classes/META-INF/persistence.xml
