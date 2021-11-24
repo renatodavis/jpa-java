@@ -1,20 +1,15 @@
 package com.gustavo.DAO;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import com.gustavo.interfaces.ICategoria;
 import com.gustavo.models.*;
-import java.util.ArrayList;
 
 	public class CategoriaDAO implements ICategoria {
 		
-		//private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("BancoPU");
-		//private static EntityManager entityManager = entityManagerFactory.createEntityManager();
-
 		public void salvar(Categoria categoria, EntityManager entityManager) {
 			
 			try {
@@ -39,9 +34,24 @@ import java.util.ArrayList;
 			
 		}
 
-		public Categoria consultar(int id) {
-			//Categoria categoria = EntityManager
-			return null;
+		// Método consultar id, do tipo Categoria, cria variável para fazer o find;
+		public Categoria consultarById(int id, EntityManager entityManager) {
+			Categoria categoria = entityManager.find(Categoria.class, id);
+			
+			return categoria;
+		}
+
+		/* Método consultar Id + o resto; faz uma variável que recebe o list categoria do tipo arrayList,
+		*  instancia uma variável do tipo categoria e faz o find(redundante, pois já existe um método fazendo isso)
+		*  depois adiciona o categoria(variável com apenas id) no categorias (variável setado com o List<Categorias>());
+		*/
+		public List<Categoria> consultarByIdList(int id, EntityManager entityManager) {
+			List<Categoria> categorias = new ArrayList<Categoria>();
+			Categoria categoria = new Categoria();
+			categoria = entityManager.find(Categoria.class, id); 
+			//entityManager.find(Categoria.class, id);
+			categorias.add(categoria);
+			return categorias;
 		}
 
 		public void alterar(Categoria categoria) {
@@ -50,8 +60,8 @@ import java.util.ArrayList;
 		}
 
 		public List<Categoria> consultarTodos(EntityManager entityManager) {
-			
-			//Query query = entityManager.createQuery("");
-		    return null;
+		TypedQuery<Categoria> consulta = entityManager.createQuery("SELECT cat FROM Categoria cat",Categoria.class);
+		List<Categoria> categorias = consulta.getResultList();
+		    return categorias;
 		}
 }

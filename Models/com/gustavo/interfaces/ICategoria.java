@@ -14,7 +14,7 @@ public interface ICategoria {
 	
 	void incluir(Categoria categoria);
 	
-	Categoria consultar(int id);
+	Categoria consultarById(int id, EntityManager entityManager);
 	
 	void alterar(Categoria categoria);
 	

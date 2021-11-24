@@ -1,6 +1,5 @@
 package com.gustavo.tableModel;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -12,21 +11,38 @@ import com.gustavo.models.Categoria;
 import com.gustavo.DAO.CategoriaDAO;
 
 	public class CategoriaTableModel extends AbstractTableModel {
-
-		private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("BancoPU");
-		private static EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
-		private List<Categoria> dados = new CategoriaDAO().consultarTodos(entityManager);
-		private String[] colunas = {"ID", "Nome"};
+		private CategoriaDAO categoriaDao = new CategoriaDAO();
+
+		// Variável do tipo list, setando a lista na variável dados;
+		public List<Categoria> dados = null;
+		
+		//Construtor busca categoria por ID ( RETORNA 1  categoria , na lista )
+		public CategoriaTableModel(int id) {
+			dados = categoriaDao.consultarByIdList(id , entityManager);
+			
+		}
+		
+		//Construtor busca todas as categorias ( retorna todos na lista )
+		public CategoriaTableModel() {
+			dados = categoriaDao.consultarTodos(entityManager);
+		}
+		
+		
+		// Entitty Manager, deve ser trocado por classe do tipo Conexão (exemplo) e instanciada onde for usar!
+		public static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("BancoPU");
+		public static EntityManager entityManager = entityManagerFactory.createEntityManager();
+		
+		private String[] colunas = {"id", "nome"};
 		
 		 public String getColumnName(int column) {
 		    return colunas[column];
 
 		}   
 		public int getRowCount() {
-			Categoria cat = entityManager.find(Categoria.class, 158);
-			entityManager.persist(cat);
+			
 			return dados.size();
+			
 		}
 		public int getColumnCount() {
 			return colunas.length;
@@ -35,11 +51,9 @@ import com.gustavo.DAO.CategoriaDAO;
 			
 			switch (coluna) {
 			case 0:
-				dados.get(linha).getId();
-				break;
+				return dados.get(linha).getId();
 			case 1:
-				dados.get(linha).getNome();
-				break;
+				return dados.get(linha).getNome();
 			}
 			return null;
 		}

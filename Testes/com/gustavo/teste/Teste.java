@@ -30,6 +30,7 @@ public class Teste {
 		
 		CategoriaDAO cd = new CategoriaDAO();
 		//cd.salvar(c);
+		cd.consultarById(2, entityManager);
 		
 		//entityManager.getTransaction().begin();
 		//entityManager.persist(cliente);
