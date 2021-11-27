@@ -22,7 +22,7 @@ public class Pessoa {
 	private String genero;
 	private String dataNasc;
 
-	
+	public Pessoa()	{}
 	public Pessoa(int id, String nome, String sobrenome) {
 		this.id = id;
 		this.nome = nome;
